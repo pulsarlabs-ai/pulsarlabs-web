@@ -1,0 +1,199 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --bg:           #03080f;
+    --text-primary: #e8f4f8;
+    --text-muted:   #7fa8c0;
+    --accent:       #38bdf8;
+    --accent-hover: #7dd3fc;
+    --font:         'Space Grotesk', sans-serif;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: var(--bg);
+    color: var(--text-primary);
+    font-family: var(--font);
+    -webkit-font-smoothing: antialiased;
+}
+
+/* ── Canvas ── */
+
+#pulsar-canvas {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+/* ── Overlay ── */
+
+.overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: clamp(2rem, 5vh, 3.5rem) 1.5rem;
+    /* subtle vignette so text is always legible */
+    background: radial-gradient(ellipse at 50% 40%, transparent 40%, rgba(3, 8, 15, 0.55) 100%);
+}
+
+/* ── Header ── */
+
+header {
+    text-align: center;
+}
+
+.wordmark {
+    font-size: clamp(2.2rem, 5.5vw, 4rem);
+    font-weight: 700;
+    letter-spacing: 0.35em;
+    margin-bottom: 1rem;
+    line-height: 1;
+}
+
+.wordmark-pulsar { color: var(--text-primary); }
+.wordmark-labs   { color: var(--accent); }
+
+.tagline {
+    font-size: clamp(0.8rem, 1.4vw, 0.95rem);
+    font-weight: 300;
+    color: var(--text-muted);
+    max-width: 460px;
+    line-height: 1.7;
+    margin: 0 auto;
+}
+
+/* ── Main ── */
+
+main {
+    text-align: center;
+    max-width: 520px;
+    width: 100%;
+}
+
+.description {
+    font-size: clamp(0.88rem, 1.4vw, 1rem);
+    color: var(--text-muted);
+    line-height: 1.8;
+    margin-bottom: 2rem;
+}
+
+.stealth-badge {
+    display: inline-block;
+    border: 1px solid rgba(56, 189, 248, 0.45);
+    color: var(--accent);
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    padding: 0.35rem 0.9rem;
+    margin-bottom: 2rem;
+}
+
+.cta-text {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    margin-bottom: 0.85rem;
+}
+
+/* ── Email form ── */
+
+.email-form {
+    display: flex;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.email-form input {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(56, 189, 248, 0.25);
+    border-right: none;
+    color: var(--text-primary);
+    font-family: var(--font);
+    font-size: 0.88rem;
+    padding: 0.7rem 1rem;
+    outline: none;
+    transition: border-color 0.2s;
+    min-width: 0;
+}
+
+.email-form input::placeholder {
+    color: var(--text-muted);
+    opacity: 0.55;
+}
+
+.email-form input:focus {
+    border-color: var(--accent);
+}
+
+.email-form button {
+    background: var(--accent);
+    border: 1px solid var(--accent);
+    color: var(--bg);
+    font-family: var(--font);
+    font-size: 0.82rem;
+    font-weight: 600;
+    padding: 0.7rem 1.1rem;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background 0.2s, border-color 0.2s;
+    letter-spacing: 0.02em;
+}
+
+.email-form button:hover {
+    background: var(--accent-hover);
+    border-color: var(--accent-hover);
+}
+
+/* ── Footer ── */
+
+footer {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+}
+
+footer a {
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+footer a:hover {
+    color: var(--accent);
+}
+
+.sep {
+    opacity: 0.35;
+}
+
+/* ── Responsive ── */
+
+@media (max-width: 480px) {
+    .email-form {
+        flex-direction: column;
+    }
+    .email-form input {
+        border-right: 1px solid rgba(56, 189, 248, 0.25);
+        border-bottom: none;
+    }
+    .email-form input:focus {
+        border-color: var(--accent);
+    }
+    .email-form button {
+        padding: 0.7rem;
+    }
+}
