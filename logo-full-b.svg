@@ -1,0 +1,39 @@
+<!-- Option B full lockup: neutron star with jets + wordmark -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 48" fill="none">
+  <defs>
+    <filter id="glow-b" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="1.4" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Icon mark -->
+  <rect width="48" height="48" rx="9" fill="#03080f"/>
+  <path d="M 22,20 L 24,4 L 26,20 Z" fill="#38bdf8" opacity="0.9" filter="url(#glow-b)"/>
+  <path d="M 22,28 L 24,44 L 26,28 Z" fill="#38bdf8" opacity="0.9" filter="url(#glow-b)"/>
+  <circle cx="24" cy="24" r="4" fill="#38bdf8" filter="url(#glow-b)"/>
+  <ellipse cx="24" cy="24" rx="9" ry="2.5" stroke="#38bdf8" stroke-width="1" opacity="0.35"/>
+
+  <!-- Wordmark -->
+  <text
+    x="60"
+    y="31"
+    font-family="'Space Grotesk', Arial, sans-serif"
+    font-size="17"
+    font-weight="700"
+    letter-spacing="3.5"
+    fill="#e8f4f8"
+  >PULSAR</text>
+  <text
+    x="145"
+    y="31"
+    font-family="'Space Grotesk', Arial, sans-serif"
+    font-size="17"
+    font-weight="700"
+    letter-spacing="3.5"
+    fill="#38bdf8"
+  >LABS</text>
+</svg>

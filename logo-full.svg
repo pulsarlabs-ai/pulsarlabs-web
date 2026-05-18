@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 48" fill="none">
+  <defs>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="1.2" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Icon mark -->
+  <rect width="48" height="48" rx="9" fill="#03080f"/>
+  <path
+    d="M 4,30 L 19,30 Q 21,30 24,10 Q 27,30 29,30 L 44,30"
+    stroke="#38bdf8"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    filter="url(#glow)"
+  />
+
+  <!-- Wordmark -->
+  <text
+    x="60"
+    y="31"
+    font-family="'Space Grotesk', Arial, sans-serif"
+    font-size="17"
+    font-weight="700"
+    letter-spacing="3.5"
+    fill="#e8f4f8"
+  >PULSAR</text>
+  <text
+    x="145"
+    y="31"
+    font-family="'Space Grotesk', Arial, sans-serif"
+    font-size="17"
+    font-weight="700"
+    letter-spacing="3.5"
+    fill="#38bdf8"
+  >LABS</text>
+</svg>

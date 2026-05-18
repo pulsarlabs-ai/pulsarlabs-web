@@ -1,0 +1,23 @@
+<!-- Option D: Concentric signal rings — radio broadcast from a point source -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none">
+  <defs>
+    <filter id="glow-d" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="1.4" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <rect width="48" height="48" rx="9" fill="#03080f"/>
+
+  <!-- Outermost ring -->
+  <circle cx="24" cy="24" r="18" stroke="#38bdf8" stroke-width="0.8" opacity="0.15"/>
+  <!-- Mid ring -->
+  <circle cx="24" cy="24" r="12" stroke="#38bdf8" stroke-width="1" opacity="0.35"/>
+  <!-- Inner ring -->
+  <circle cx="24" cy="24" r="7" stroke="#38bdf8" stroke-width="1.2" opacity="0.6" filter="url(#glow-d)"/>
+  <!-- Core dot -->
+  <circle cx="24" cy="24" r="2.5" fill="#38bdf8" filter="url(#glow-d)"/>
+</svg>

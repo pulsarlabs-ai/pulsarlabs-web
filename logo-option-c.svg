@@ -1,0 +1,35 @@
+<!-- Option C: Pulsar timing diagram — 3 staggered pulse rows -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none">
+  <defs>
+    <filter id="glow-c" x="-20%" y="-30%" width="140%" height="160%">
+      <feGaussianBlur stdDeviation="1" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <rect width="48" height="48" rx="9" fill="#03080f"/>
+
+  <!-- Row 1: baseline y=15, spike at x=14 -->
+  <path
+    d="M 4,15 L 9,15 Q 11,15 14,7 Q 17,15 19,15 L 44,15"
+    stroke="#38bdf8" stroke-width="1.6" stroke-linecap="round"
+    filter="url(#glow-c)"
+  />
+
+  <!-- Row 2: baseline y=24, spike at x=24 -->
+  <path
+    d="M 4,24 L 19,24 Q 21,24 24,16 Q 27,24 29,24 L 44,24"
+    stroke="#38bdf8" stroke-width="1.6" stroke-linecap="round"
+    opacity="0.6" filter="url(#glow-c)"
+  />
+
+  <!-- Row 3: baseline y=33, spike at x=34 -->
+  <path
+    d="M 4,33 L 29,33 Q 31,33 34,25 Q 37,33 39,33 L 44,33"
+    stroke="#38bdf8" stroke-width="1.6" stroke-linecap="round"
+    opacity="0.3" filter="url(#glow-c)"
+  />
+</svg>
