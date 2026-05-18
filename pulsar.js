@@ -10,7 +10,7 @@
     const PULSE_SIGMA = 5.5;   // Gaussian half-width (narrower = sharper spike)
     const AMPLITUDE   = 70;    // peak height in pixels
     const SCROLL_SPEED = 0.55; // pixels per frame (rightward → leftward scroll)
-    const WAVE_Y_FRAC  = 0.70; // fraction of screen height for the baseline
+    const WAVE_Y_FRAC  = 0.82; // fraction of screen height for the baseline
 
     // Starfield
     const NUM_STARS = 200;
