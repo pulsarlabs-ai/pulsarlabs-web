@@ -1,0 +1,16 @@
+{
+  "name": "pulsarlabs-web",
+  "version": "1.0.0",
+  "description": "Static one-page teaser site for Pulsar Labs",
+  "private": true,
+  "scripts": {
+    "dev": "npx serve .",
+    "deploy": "vercel deploy"
+  },
+  "dependencies": {
+    "@vercel/speed-insights": "^1.0.14"
+  },
+  "devDependencies": {
+    "serve": "^14.2.4"
+  }
+}
