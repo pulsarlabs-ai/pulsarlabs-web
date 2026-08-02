@@ -10,13 +10,14 @@
     const PULSE_SIGMA = 5.5;   // Gaussian half-width (narrower = sharper spike)
     const AMPLITUDE   = 70;    // peak height in pixels
     const SCROLL_SPEED = 0.55; // pixels per frame (rightward → leftward scroll)
-    const WAVE_Y_FRAC  = 0.91; // fraction of screen height for the baseline
+    const WAVE_GAP     = 24;   // minimum pixels between the signal baseline and footer
 
     // Starfield
     const NUM_STARS = 200;
     let stars = [];
+    const footer = document.querySelector('footer');
 
-    let W, H, baseY;
+    let W, H, baseY, waveAmplitude;
     let frame = 0;
 
     // ── Resize ──────────────────────────────────────────────────────────────
@@ -24,7 +25,10 @@
     function resize() {
         W = canvas.width  = window.innerWidth;
         H = canvas.height = window.innerHeight;
-        baseY = H * WAVE_Y_FRAC;
+        const footerTop = footer ? footer.getBoundingClientRect().top : H * 0.9;
+        const targetBaseY = footerTop - Math.max(WAVE_GAP, H * 0.045);
+        baseY = Math.min(Math.max(targetBaseY, H * 0.72), H * 0.88);
+        waveAmplitude = Math.min(AMPLITUDE, Math.max(38, H * 0.07));
         buildStars();
     }
 
@@ -85,7 +89,7 @@
         // Outer glow pass
         ctx.beginPath();
         for (let x = 0; x <= W; x++) {
-            const y = baseY - pulseAt(x + offset) * AMPLITUDE;
+            const y = baseY - pulseAt(x + offset) * waveAmplitude;
             x === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
         }
         ctx.strokeStyle = ACCENT;
@@ -103,7 +107,7 @@
         for (let x = 0; x <= W; x++) {
             const sig = pulseAt(x + offset);
             if (sig > 0.04) {
-                const y = baseY - sig * AMPLITUDE;
+                const y = baseY - sig * waveAmplitude;
                 if (!inSegment) { ctx.moveTo(x, y); inSegment = true; }
                 else ctx.lineTo(x, y);
             } else {

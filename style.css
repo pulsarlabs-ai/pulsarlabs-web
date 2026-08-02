@@ -23,6 +23,14 @@ html, body {
     -webkit-font-smoothing: antialiased;
 }
 
+html.legal-document,
+html.legal-document body {
+    height: auto;
+    min-height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
 /* ── Canvas ── */
 
 #pulsar-canvas {
@@ -164,8 +172,13 @@ footer {
     font-size: 0.78rem;
     color: var(--text-muted);
     display: flex;
+    flex-direction: column;
     align-items: center;
-    gap: 0.65rem;
+    gap: 0.34rem;
+    width: 100%;
+    max-width: 78rem;
+    text-align: center;
+    text-shadow: 0 1px 18px rgba(3, 8, 15, 0.95);
 }
 
 footer a {
@@ -178,8 +191,94 @@ footer a:hover {
     color: var(--accent);
 }
 
+.footer-links {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+}
+
+.business-details,
+.footer-note {
+    margin: 0;
+    line-height: 1.45;
+    width: 100%;
+}
+
+.footer-note {
+    max-width: 72rem;
+}
+
 .sep {
     opacity: 0.35;
+}
+
+/* ── Legal pages ── */
+
+.legal-overlay {
+    position: relative;
+    min-height: 100vh;
+    justify-content: flex-start;
+    gap: clamp(2.25rem, 5vh, 4rem);
+}
+
+.legal-content {
+    max-width: 760px;
+    text-align: left;
+    padding: clamp(1.4rem, 3vw, 2rem);
+    border: 1px solid rgba(56, 189, 248, 0.18);
+    background: rgba(3, 8, 15, 0.78);
+    backdrop-filter: blur(14px);
+}
+
+.legal-kicker {
+    color: var(--accent);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    margin-bottom: 0.8rem;
+    text-transform: uppercase;
+}
+
+.legal-content h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    line-height: 1.1;
+    margin-bottom: 0.6rem;
+}
+
+.legal-content .updated {
+    color: var(--text-muted);
+    font-size: 0.82rem;
+    margin-bottom: 2rem;
+}
+
+.legal-content section {
+    margin-top: 1.8rem;
+}
+
+.legal-content h2 {
+    color: var(--text-primary);
+    font-size: 1rem;
+    line-height: 1.35;
+    margin-bottom: 0.6rem;
+}
+
+.legal-content p,
+.legal-content li {
+    color: var(--text-muted);
+    font-size: 0.92rem;
+    line-height: 1.75;
+}
+
+.legal-content p + p {
+    margin-top: 0.8rem;
+}
+
+.legal-content ul {
+    margin: 0.6rem 0 0 1.2rem;
+}
+
+.legal-content a {
+    color: var(--accent);
 }
 
 /* ── Responsive ── */
@@ -197,5 +296,12 @@ footer a:hover {
     }
     .email-form button {
         padding: 0.7rem;
+    }
+    footer {
+        font-size: 0.7rem;
+        gap: 0.32rem;
+    }
+    .legal-content {
+        padding: 1.2rem;
     }
 }
